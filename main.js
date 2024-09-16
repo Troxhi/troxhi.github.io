@@ -1,5 +1,5 @@
 const progressBar = document.getElementById("progress-bar");
-const startOfSemester = new Date(Date.UTC(2024, 8, 15)).getTime();
+const startOfSemester = new Date(Date.UTC(2024, 8, 16)).getTime();
 const endOfSemester = new Date(Date.UTC(2024, 11, 20)).getTime();
 const now = Date.now();
 const total = endOfSemester - startOfSemester;

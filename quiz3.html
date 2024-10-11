@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de" class="h-100" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EProg HS24</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-xl-5">Einführung in die Programmierung - HS 2024</h1>
+        <h4>Lösungen Kahoot Quiz - Woche 3</h4>
+        <div class="alert alert-warning" role="alert">
+            Es ist wichtig, dass bei diesen Fragen eine essentielle Unterscheidung gemacht wird. Der Wert, zu dem ein Java Ausdruck ausgewertet wird, muss nicht
+            äquivalent sein mit dem Wert, der <strong>nach der Auswertung</strong> einer Variable zugewiesen ist. Man kann sich das wie folgt vorstellen: Jeder Ausdruck
+            ist eine Methode die aufgerufen wird. Die aufgerufene Methode kann frei entscheiden, welche Variablen verändert werden. Die Methode kann ebenfalls entscheiden, 
+            welcher Wert zurückgegeben wird. Da diese Werte nicht übereinstimmen müssen, muss deshalb immer diese Unterscheidung gemacht werden.
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Frage 15
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample" style="">
+                    <div class="accordion-body">
+                        Dieses Programm terminiert nicht. Um zu verstehen, wieso dieses Programm nicht terminiert, können wir die Bedingung, die
+                        von der <code>while</code> Schleife geprüft wird, genauer analysieren. Zuerst sehen wir, dass in jeder Iteration x dekrementiert
+                        wird, sofern <code>x > 0</code> gilt. Da der Post-Dekrement Operator verwendet wird, evaluiert der Ausdruck <code>x--</code> zu dem
+                        aktuellen Wert (bevor x dekrementiert wird) von x. Somit gilt nach zwei Iterationen der Zustand <code>x == 1</code>. Wenn
+                        nun die Bedingung erneut geprüft wird, evaluiert <code>0 < x--</code> noch immer zu <code>true</code> (da <code>x == 1</code> gilt und der Post-Dekrement
+                        Operator zum Wert von x evaluiert, bevor x dekrementiert wird). Allerdings gilt nach der Evaluierung <code>x == 0</code>. 
+                        Wenn nun erneut die Bedingung geprüft wird, ist die erste Bedingung <code>x == 0</code> wahr. Somit wird die zweite Bedingung aufgrund der Kurzschlussauswertung 
+                        nicht überprüft und x bleibt konstant 0. Somit wird auch in jeder folgenden Iteration die Bedingung <code>x == 0</code> wahr sein, da der Wert von x nicht mehr
+                        verändert wird.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Frage 16
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Wir wissen, dass in Java die Precedence von "unary post-increment" (also <code>x++</code>) und "unary pre-increment" (also <code>++x</code>)
+                        höher ist als die Precedence von dem Operator <code>+</code> (Addition). Da in Java Operanden von Operatoren von links nach rechts evaluiert werden, wird
+                        zuerst <code>x++</code> evaluiert. Dieser Ausdruck evaluiert zu dem alten Wert von x (also <code>x == 2</code>). Allerdings wird x um 1 erhöht. Somit
+                        gilt nach der Evaluierung von <code>x++</code> folgendes: <code>x == 3</code>. Wenn nun <code>++x</code> ausgewertet wird, gilt nach der Auswertung <code>x == 4</code>.
+                        Da bei "unary pre-increment" der Ausdruck zum neuen Wert (in dem Fall <code>x == 4</code>) ausgewertet wird, ist unser komplette Ausdruck <code>x = 2 + 4</code> (nachdem die Operanden ausgewertet wurden). 
+                        Nun wird noch die Addition und das Assignment gemacht, was dazu führt das <code>x == 6</code> am Schluss gilt.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Frage 17
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Wir wissen, dass in Java die Precedence von "unary post-increment" (also <code>x++</code>) höher ist als die Precedence von dem Operator <code>+</code> (Addition). 
+                        Da in Java Operanden von Operatoren von links nach rechts evaluiert werden, wird zuerst <code>x++</code> evaluiert. Dieser Ausdruck evaluiert zu dem alten Wert von x (also <code>x == 2</code>). 
+                        Allerdings wird x um 1 erhöht. Somit gilt nach der Evaluierung von <code>x++</code> folgendes: <code>x == 3</code>. Wenn nun nochmals <code>x++</code> ausgewertet wird, gilt nach der Auswertung <code>x == 4</code>.
+                        Allerdings gilt auch hier wieder, dass der Ausdruck <code>x++</code> zu <code>x == 3</code> ausgewertet wird. Der komplette Ausdruck nach der Auswertung der Operanden des <code>+</code> Operator ist somit <code>x = 2 + 3</code>. 
+                        Nun wird noch die Addition und das Assignment gemacht, was dazu führt das <code>x == 5</code> am Schluss gilt. 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

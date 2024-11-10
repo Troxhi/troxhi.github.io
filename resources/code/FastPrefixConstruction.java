@@ -1,5 +1,3 @@
-package ch.ethz.eprog.u06;
-
 public class FastPrefixConstruction {
 
 	public static void main(String[] args) {

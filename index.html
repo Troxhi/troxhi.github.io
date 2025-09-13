@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Einführung in die Programmierung HS25</title>
   </head>
   <body class="container mx-auto">
-    <div class="flex items-end justify-between">
+    <div class="flex md:items-end md:justify-between md:flex-row flex-col">
         <div class="flex flex-col">
         <h1 class="italic first-letter:font-bold text-6xl">
             EProg
@@ -16,34 +17,35 @@
         <div class="flex flex-col">
           <p>Zeit: Mittwoch, 16:15 - 18:00</p>
           <p>Ort: CHN D 29</p>
+          <p>Gruppe: G-01</p>
         </div>
         <div class="flex gap-4">
-        <a href="#resources" class="rounded-lg px-4 py-2 border border-black hover:bg-blue-500">01 Unterlagen</a>
-        <a href="#links" class="rounded-lg px-4 py-2 border border-black">02 Links</a>
-        <a href="#contact" class="rounded-lg px-4 py-2 border border-black">03 Kontakt</a>
+        <a href="#resources" class="rounded-lg px-4 py-2 border border-black whitespace-nowrap">01 Unterlagen</a>
+        <a href="#links" class="rounded-lg px-4 py-2 border border-black whitespace-nowrap">02 Links</a>
+        <a href="#contact" class="rounded-lg px-4 py-2 border border-black whitespace-nowrap">03 Kontakt</a>
         </div>
     </div>
     <br>
     <div id="resources">
     <h2 class="text-3xl font-bold">01 Unterlagen</h2>
-    <table class="w-full">
+    <table class="min-w-full w-full">
       <thead>
         <tr>
           <th class="text-left">Woche</th>
-          <th class="text-left">Datum</th>
-          <th class="text-left">Slides</th>
-          <th class="text-left">Themen</th>
-          <th class="text-left">Anmerkungen</th>
+          <th class="text-left px-4">Datum</th>
+          <th class="text-left px-4">Slides</th>
+          <th class="text-left px-4">Themen</th>
+          <th class="text-left px-4">Anmerkungen</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td>17.09.2025</td>
-          <td>Noch keine Slides</td>
-          <td>Einführung, EBNF
+          <td class="px-4">17.09.2025</td>
+          <td class="px-4">Noch keine Slides</td>
+          <td class="px-4">Einführung, EBNF
           </td>
-          <td>Keine Anmerkungen</td>
+          <td class="px-4">Keine Anmerkungen</td>
         </tr>
       </tbody>
     </table>

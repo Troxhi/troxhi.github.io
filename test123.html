@@ -42,14 +42,11 @@
       margin: 0;
       font-family: 'Inter', sans-serif;
       color: #f5f5f5;
-      /* === CHANGED === */
       background-color: var(--ink); /* Fallback background color */
-      /* background: url('img/background2.jpg') center center / cover no-repeat fixed; <-- REMOVED */
       overflow-x: hidden;
       scroll-snap-type: y mandatory;
     }
 
-    /* === ADDED THIS NEW RULE === */
     html::before {
       content: '';
       position: fixed;
@@ -723,7 +720,7 @@
     <p>
       Limited seats. Unlimited possibility.<br /><br />
       Kadray accepts only a select number of participants. Once the limit is
-      reached, applications close — without notice.<br /><a />
+      reached, applications close — without notice.<br /><br />
       There are no waiting lists. Only those who act in time take part.<br /><br />
       Because unforgettable nights are never open to everyone.
     </p>
@@ -776,30 +773,52 @@
             (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
     bar.style.width = scrolled + '%';
 
+    // Check if menu is open *before* changing classes
+    const isMenuOpen = mobileMenu.classList.contains('active');
+
     // When scrolled down 10% of the screen height, trigger transitions
     if (window.scrollY > window.innerHeight * 0.1) {
       document.body.classList.add('scrolled');
-    } else {
+    } else if (!isMenuOpen) {
+      // === MODIFIED LOGIC ===
+      // Only remove 'scrolled' class if the user is at the top
+      // AND the menu is NOT open. This prevents the hamburger
+      // icon from disappearing while its menu is open.
       document.body.classList.remove('scrolled');
     }
 
-    // Auto-close mobile menu when scrolling
-    if (mobileMenu.classList.contains('active')) {
-      toggle.classList.remove('menu-open');
-      mobileMenu.classList.remove('active');
-    }
+    // === REMOVED BUGGY CODE ===
+    // The "auto-close on scroll" code that was here was
+    // causing a race condition with the 'click' event,
+    // preventing the menu from opening consistently.
   });
 
   /* -------- MOBILE MENU TOGGLE -------- */
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('menu-open');
     mobileMenu.classList.toggle('active');
+
+    // === ADDED FIX ===
+    // If we are CLOSING the menu (by clicking the toggle)
+    // and we are at the top of the page,
+    // we should remove the 'scrolled' class.
+    if (!mobileMenu.classList.contains('active') && window.scrollY <= window.innerHeight * 0.1) {
+      document.body.classList.remove('scrolled');
+    }
   });
 
   document.querySelectorAll('.mobile-menu a').forEach((link) => {
     link.addEventListener('click', () => {
       toggle.classList.remove('menu-open');
       mobileMenu.classList.remove('active');
+
+      // === ADDED FIX ===
+      // If we are CLOSING the menu (by clicking a link)
+      // and we are at the top of the page,
+      // we should remove the 'scrolled' class.
+      if (window.scrollY <= window.innerHeight * 0.1) {
+        document.body.classList.remove('scrolled');
+      }
     });
   });
 

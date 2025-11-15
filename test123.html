@@ -8,7 +8,6 @@
   />
   <title>KADRAY — The Match Before the Night</title>
 
-  <!-- Elegant typography -->
   <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
           rel="stylesheet"
@@ -43,10 +42,22 @@
       margin: 0;
       font-family: 'Inter', sans-serif;
       color: #f5f5f5;
-      background: url('img/background2.jpg') center center / cover no-repeat fixed;
+      /* === CHANGED === */
+      background-color: var(--ink); /* Fallback background color */
+      /* background: url('img/background2.jpg') center center / cover no-repeat fixed; <-- REMOVED */
       overflow-x: hidden;
       scroll-snap-type: y mandatory;
     }
+
+    /* === ADDED THIS NEW RULE === */
+    html::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('img/background2.jpg') center center / cover no-repeat;
+      z-index: -2; /* Puts it at the very back */
+    }
+
     section {
       scroll-snap-align: start;
     }
@@ -431,10 +442,8 @@
 </head>
 
 <body>
-<!-- progress bar -->
 <div id="progress-bar"></div>
 
-<!-- HERO -->
 <section class="logo-hero" id="hero">
   <div class="logo-container">
     <img
@@ -445,7 +454,6 @@
   </div>
 </section>
 
-<!-- DESKTOP NAV -->
 <nav>
   <div class="nav-links">
     <a href="#hero">Home</a>
@@ -456,7 +464,6 @@
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
 <div class="mobile-bar"></div>
 <div
         class="menu-toggle"
@@ -482,7 +489,6 @@
   <a href="#exclusive">Exclusivity</a>
 </div>
 
-<!-- HERO SECTION (with logo + countdown inside) -->
 <section class="logo-hero" id="hero">
   <div class="logo-container">
     <img
@@ -528,7 +534,6 @@
       begins soon.
     </p>
 
-    <!-- ELEGANT COUNTDOWN -->
     <div
             id="countdown-timer"
             class="countdown"
@@ -662,7 +667,6 @@
 
 </section>
 
-<!-- THE IDEA -->
 <section id="idea" class="content">
   <div class="glass">
     <h3>The Idea</h3>
@@ -681,7 +685,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section id="how" class="content">
   <div class="glass">
     <h3>How It Works</h3>
@@ -699,7 +702,6 @@
     </p>
   </div>
 </section>
-<!-- PRIVACY -->
 <section id="privacy" class="content">
   <div class="glass">
     <h3>Privacy & Discretion</h3>
@@ -715,21 +717,19 @@
   </div>
 </section>
 
-<!-- EXCLUSIVITY -->
 <section id="exclusive" class="content">
   <div class="glass">
     <h3>Exclusivity</h3>
     <p>
       Limited seats. Unlimited possibility.<br /><br />
       Kadray accepts only a select number of participants. Once the limit is
-      reached, applications close — without notice.<br /><br />
+      reached, applications close — without notice.<br /><a />
       There are no waiting lists. Only those who act in time take part.<br /><br />
       Because unforgettable nights are never open to everyone.
     </p>
   </div>
 </section>
 
-<!-- FINAL INVITATION -->
 <section id="final" class="content">
   <div class="glass">
     <h3>Final Invitation</h3>
@@ -751,7 +751,6 @@
 </section>
 
 
-<!-- FOOTER -->
 <footer
         style="
         text-align: center;
@@ -764,7 +763,6 @@
   Made with love for love, by students for students.<br />
   © 2025 KADRAY — Switzerland
 </footer>
-<!-- ================== JAVASCRIPT ================== -->
 <script>
   const bar = document.getElementById('progress-bar');
   const logo = document.getElementById('main-logo');
